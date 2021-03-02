@@ -1,0 +1,58 @@
+<!doctype html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>CouPon!-ログイン</title>
+        <link rel="stylesheet" href="../normalize.css">
+        <link rel="stylesheet" href="../skeleton.css">
+    </head>
+    <body>
+        <hr class="brand-banner">
+        <div class="container">
+            <h1 onclick="document.location.href='../';">CouPon!</h1>
+        </div>
+        
+        <!--ログインフォーム-->
+        <div class="container">
+           <h2>SINE IN</h2>
+            <form method="post" action="Login_Check.php">
+                <div class="row">
+                    <!--メールアドレス-->
+                    <div class="five columns">
+                        <label for="user-mail">Email</label>
+                        <input type="email" id="user-mail" name="user-mail" class="u-full-width">
+                    </div>
+                    
+                    <!--パスワード-->
+                    <div class="five columns">
+                        <label for="user-mail">Password</label>
+                        <input type="password" id="user-pass" name="user-pass" class="u-full-width">
+                    </div>
+                    
+                    <!--コンファーム-->
+                    <div class="two columns">
+                       <label for="confirm">&emsp;</label>
+                        <input type="submit" id="confirm" class="button-primary" value="confirm">
+                    </div>
+                </div>
+            </form>
+        </div>
+        
+        <!--プラン登録-->
+        <hr>
+        <div class="container">
+            <h2>Do you want your account?</h2>
+            <a href="../#regist" class="button button-primary">yes</a>
+            <a href="../" class="button">no</a>
+        </div>
+        
+        <!--フッター-->
+        <hr>
+        <div class="container">
+            <p>&copy;Akari All Rights Reserved.</p>
+        </div>
+        
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    </body>
+</html>

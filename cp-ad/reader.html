@@ -1,0 +1,91 @@
+<!--<?php
+require_once('../function/Function_Check.php');
+?>-->
+<!doctype html>
+<html>
+    <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>CouPon!-リーダー</title>
+    <link rel="stylesheet" href="../normalize.css">
+    <link rel="stylesheet" href="../skeleton.css">
+</head>
+
+<body>
+
+    <script src="../js/qr_pack.js"></script>
+    <script src="../js/qr_read.js"></script>
+
+    <hr class="brand-banner">
+    <div class="container">
+        <div style="width: 50%;float: left;">
+            <h1 onclick="document.location.href='../cp-ad/';">CouPon!</h1>
+        </div>
+
+        <div style="width: 30%;float: right;" hidden>
+            <button type="button" id="toCamera">手動</button>
+            <button type="button" id="toMovie" style="display: none">自動</button>
+        </div>
+    </div>
+
+    <!--読み取り-->
+    <div class="container">
+        <div id="video-input">
+            <div>
+                <button type="button" id="changeCamera">カメラ切り替え</button>
+            </div>
+            <div style="text-align: center">
+                <video id="video" style="width: 90%; height: auto;" autoplay playsinline></video>
+            </div>
+            <img id="img" />
+            <div style="display:none;">
+                <canvas id="canvas"></canvas>
+            </div>
+            <div style="margin-top: 3em">
+                <p style="font-weight: bold; margin-bottom: 5px">アクティブなカメラ</p>
+                <p id="active-camera" style="margin-top: 5px"></p>
+            </div>
+        </div>
+
+        <div id="photo-input" style="display: none">
+            <div style="text-align: center">
+                <label for="input-qr" class="qrbtn">QRコードを読み取る</label>
+                <input type="file" id="input-qr" accept="image/*" capture="environment" tabindex="-1" style="display: none" onchange="openQRCamera(this);">
+            </div>
+        </div>
+
+
+
+
+        
+
+        <div hidden>
+            <label for="qr">読み取ったQRコード<br></label>
+            <input type="text" id="qr" value="" style="width:100%">
+        </div>
+    </div>
+
+    <!--フッター-->
+    <hr>
+    <div class="container">
+        <p>&copy;Akari All Rights Reserved.</p>
+    </div>
+
+    <script>
+        /*QR読み取った時の動作*/
+        var QRCheckId = setInterval(function() {
+            var InputData = document.getElementById('qr').value;
+            if (InputData !== "") {
+                if (confirm('クーポンを発券しますか？')) {
+                    console.log('yes');
+                    document.location.href = 'https://lo-ope.com/cp/use/Use_Check.php?qr=' + InputData;
+                } else {
+                    console.log('no');
+                }
+                document.getElementById('qr').value = "";
+            }
+        }, 500);
+    </script>
+
+</body>
+</html>
